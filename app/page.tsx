@@ -27,20 +27,43 @@ export default function SmartMineLanding() {
     <main className="min-h-screen bg-[#0f172a] text-slate-200 selection:bg-amber-500/30">
       
       {/* NAVBAR */}
-      <nav className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? 'bg-[#0f172a]/90 backdrop-blur-md py-4 shadow-xl' : 'bg-transparent py-6'}`}>
+  <nav className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? 'bg-[#0f172a]/95 backdrop-blur-md py-3 shadow-2xl border-b border-slate-800' : 'bg-transparent py-6'}`}>
   <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
-    <div className="flex items-center gap-2 group cursor-pointer">
-      <div className="bg-amber-500 p-1.5 rounded-lg group-hover:rotate-12 transition-transform">
-        <HardHat size={22} className="text-slate-900" />
-      </div>
-      <span className="text-2xl font-black tracking-tighter text-white">smartMine</span>
+    
+    {/* LOGO AREA */}
+    <div 
+      className="flex items-center cursor-pointer group" 
+      onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+    >
+      <img 
+        src="SmartMine.png" 
+        alt="SmartMine Logo" 
+        className="h-14 md:h-16 w-auto object-contain transition-transform duration-300 group-hover:scale-105" 
+      />
+      {/* If your logo image already contains the text "SmartMine", 
+         you can leave this as is. If it's just an icon, you can 
+         uncomment a span here for the text.
+      */}
     </div>
-    {/* The links will now be pushed to the right because the button is gone */}
-    <div className="hidden md:flex gap-8 text-sm font-bold uppercase tracking-widest">
+
+    {/* NAVIGATION LINKS */}
+    <div className="hidden md:flex items-center gap-10">
       {['About', 'Problem', 'Solution', 'Contact'].map((item) => (
-        <a key={item} href={`#${item.toLowerCase()}`} className="hover:text-amber-500 transition-colors">{item}</a>
+        <a 
+          key={item} 
+          href={`#${item.toLowerCase()}`} 
+          className="text-xs font-black uppercase tracking-[0.2em] text-slate-300 hover:text-amber-500 transition-colors duration-200"
+        >
+          {item}
+        </a>
       ))}
     </div>
+
+    {/* MOBILE MENU ICON (Optional visual filler) */}
+    <div className="md:hidden text-amber-500">
+      <Menu size={28} />
+    </div>
+
   </div>
 </nav>
 
